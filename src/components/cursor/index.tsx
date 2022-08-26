@@ -16,27 +16,27 @@ let smallDot = 5;
 let amount = 40;
 let xDot = (bigDot - smallDot) / amount;
 let duration = 0.004;
-const dots:ReactElement<DotProps>[] = [];
 
 const Dot = styled.span.attrs((props:DotProps) => ({style:{
   top: props.coords.y - (bigDot - (props.id * xDot)) / 2,
   left: props.coords.x - (bigDot - (props.id * xDot)) / 2,
-  }}))`
+}}))`
   position: fixed;
   transition: all ${(props: DotProps) => props.id * duration}s ease-out;
   width: ${(props: DotProps) => bigDot - (props.id * xDot)}px;
   height: ${(props: DotProps) => bigDot - (props.id * xDot)}px;
   border-radius: 20px;
   background-color: white;
-`;
+  `;
 
 const StyledCursor = styled.span`
   mix-blend-mode: difference;
   position: fixed;
   z-index: 1000;
-`;
+  `;
 
 const Cursor:FC = () => {
+  const dots:ReactElement<DotProps>[] = [];
   const [coords, setCoords] = useState<Coords>({x: 0, y: 0});
   
   const mouseMoveEvent = useCallback((e:MouseEvent) => {
