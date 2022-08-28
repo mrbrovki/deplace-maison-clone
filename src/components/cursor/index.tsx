@@ -11,9 +11,9 @@ interface DotProps{
   id: number;
 };
 
-let bigDot = 40;
+let bigDot = 35;
 let smallDot = 5;
-let amount = 40;
+let amount = 30;
 let xDot = (bigDot - smallDot) / amount;
 let duration = 0.004;
 
@@ -26,6 +26,7 @@ const Dot = styled.span.attrs((props:DotProps) => ({style:{
   width: ${(props: DotProps) => bigDot - (props.id * xDot)}px;
   height: ${(props: DotProps) => bigDot - (props.id * xDot)}px;
   border-radius: 20px;
+  pointer-events: none;
   background-color: white;
   `;
 
